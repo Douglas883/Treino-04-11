@@ -1,0 +1,60 @@
+[treino_hibrido.html](https://github.com/user-attachments/files/34372722/treino_hibrido.html)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treino Híbrido</title>
+<style>
+:root{--bg:#fff;--card:#f7f6f2;--text:#1a1a1a;--muted:#5f5e5a;--line:#e3e1d8;--accent:#1D9E75}
+@media (prefers-color-scheme: dark){:root{--bg:#161615;--card:#222220;--text:#f1efe8;--muted:#a8a69d;--line:#33332f}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);padding:16px;max-width:720px;margin:0 auto;line-height:1.4}
+h1{font-size:22px;margin-bottom:2px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:12px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--text);padding:8px 14px;border-radius:20px;font-size:13px;cursor:pointer}
+.tab.on{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+.panel{display:none}.panel.on{display:block}
+.head{border-radius:12px 12px 0 0;padding:12px 14px;color:#fff}
+.head b{display:block;font-size:15px}.head span{font-size:11px;opacity:.9;letter-spacing:.05em}
+.list{border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden}
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px;align-items:flex-start}
+.row:last-child{border-bottom:none}
+.row small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.sets{font-weight:700;white-space:nowrap}
+.tip{background:var(--card);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--muted);margin-top:10px}
+.tip b{color:var(--text)}
+table{width:100%;border-collapse:collapse;font-size:14px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+td,th{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--card);font-size:12px;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+.note{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.note b{display:block;font-size:13px}.note span{color:var(--muted);font-size:13px}
+h2{font-size:12px;letter-spacing:.08em;color:var(--muted);margin:18px 0 8px;text-transform:uppercase}
+</style>
+</head>
+<body>
+<h1>Treino Híbrido</h1>
+<p class="sub">Terça a sábado · sem quadríceps · futebol na segunda</p>
+<div class="tabs" id="tabs"></div>
+<div id="panels"></div>
+<script>
+const D={"days": [{"key": "Ter", "name": "TERÇA-FEIRA", "title": "Peito pesado + Ombro lateral + Tríceps", "badge": "PUSH PESADO", "color": "#185FA5", "light": "#E6F1FB", "ex": [["Supino inclinado com halteres", "4x6-8", "Carga progressiva, 1-2 reps de reserva"], ["Supino reto com barra", "3x6-8", "Força"], ["Crossover", "3x10-12", "Tensão constante"], ["Elevação lateral com halteres", "4x12-15", "Sem balançar o tronco"], ["Elevação lateral na polia (unilateral)", "3x12-15", ""], ["Tríceps testa", "4x8-10", ""], ["Tríceps corda", "3x10-12", ""]], "cardio": "15 a 20 min de bike, zona 2", "tip": "Dia mais pesado de peito. Suba a carga só quando fechar todas as séries no topo das repetições."}, {"key": "Qua", "name": "QUARTA-FEIRA", "title": "Costas (apoiada) + Ombro posterior + Bíceps", "badge": "PULL VOLUME", "color": "#1D9E75", "light": "#E1F5EE", "ex": [["Puxada aberta", "4x8-10", "Amplitude total"], ["Remada na máquina com peito apoiado", "3x8-10", "Poupa a lombar"], ["Remada unilateral apoiada no banco", "3x10-12", ""], ["Crucifixo inverso (peck deck)", "4x12-15", ""], ["Face pull", "3x15", ""], ["Rosca direta", "4x8-10", ""], ["Rosca martelo", "3x10-12", ""]], "cardio": "15 a 20 min de bike, zona 2", "tip": "Remadas apoiadas hoje para chegar com a lombar descansada no stiff de quinta."}, {"key": "Qui", "name": "QUINTA-FEIRA", "title": "Posterior + Glúteo + Panturrilha + Abdômen", "badge": "POSTERIOR", "color": "#534AB7", "light": "#EEEDFE", "ex": [["Stiff com barra ou halteres", "4x8-10", "Foco no alongamento do posterior"], ["Mesa flexora", "4x10-12", "2s de pico de contração"], ["Elevação pélvica", "4x8-10", ""], ["Cadeira flexora", "3x12-15", ""], ["Extensão de quadril na polia (glúteo)", "3x12-15", ""], ["Panturrilha em pé", "5x15-20", ""], ["Elevação de pernas", "4x15", ""], ["Prancha", "3x1 min", ""]], "cardio": "15 a 20 min de bike, zona 2", "tip": "Único dia de posterior e glúteo na semana: 18 séries mais panturrilha. Qualidade de execução manda aqui."}, {"key": "Sex", "name": "SEXTA-FEIRA", "title": "Peito volume + Ombro lateral + Tríceps", "badge": "PUSH VOLUME", "color": "#993556", "light": "#FBEAF0", "ex": [["Supino inclinado na máquina", "4x10-12", ""], ["Crucifixo inclinado com halteres", "3x12-15", "Alongamento no fundo"], ["Crossover alto", "3x12-15", ""], ["Elevação lateral na polia", "4x15-20", ""], ["Elevação lateral com halteres", "3x15-20", ""], ["Tríceps pulley", "4x12-15", ""], ["Tríceps francês na polia (unilateral)", "3x12-15", ""]], "cardio": "15 a 20 min de bike, zona 2", "tip": "Dia de volume: reps mais altas, tensão constante. Última série dos isoladores pode ir até a falha."}, {"key": "Sáb", "name": "SÁBADO", "title": "Costas pesado + Ombro posterior + Bíceps + Corrida 5km", "badge": "PULL PESADO", "color": "#BA7517", "light": "#FAEEDA", "ex": [["Barra fixa", "4x6-8", "Adicione carga se passar de 8 reps limpas"], ["Remada curvada", "4x6-8", "Aqui pode ser pesada"], ["Pullover na polia ou puxada pegada fechada", "3x10-12", ""], ["Crucifixo inverso na polia", "3x12-15", ""], ["Face pull", "3x15", ""], ["Rosca alternada inclinada", "4x10-12", "Pico de contração"], ["Rosca na polia", "3x12-15", ""], ["Corrida 5km", "Zona 2", "Depois da musculação, ritmo confortável"]], "cardio": null, "tip": "Costas pesado. A corrida entra depois da musculação, sem pressão de pace."}], "other": [["Segunda", "Futebol à noite", "Sem musculação. Não comer nada pesado antes do jogo."], ["Domingo", "Descanso", "Corrida leve de 5km opcional, zona 2."]], "volume": [["Peito", "10 + 10", "20"], ["Costas", "10 + 11", "21"], ["Ombro lateral", "7 + 7", "14"], ["Ombro posterior", "7 + 6", "13"], ["Tríceps", "7 + 7", "14"], ["Bíceps", "7 + 7", "14"], ["Posterior + glúteo", "1 dia só", "18"], ["Panturrilha", "1 dia só", "5"]], "notes": [["Progressão", "Quando fechar todas as séries no topo das repetições com 1-2 reps de reserva, suba 2 a 5% de carga na próxima sessão."], ["Braços", "Começa em 14 séries semanais cada. Só suba para 16 se estiver recuperando bem e sem incômodo no cotovelo."], ["Falha", "Na maioria das séries pare com 1-2 reps de reserva. Vá até a falha só na última série dos isoladores."], ["Deload", "A cada 6 a 8 semanas faça uma semana com cerca de 40% menos séries, mantendo a carga."], ["Terça e sexta", "Terça é pesado (6-8 reps) e sexta é volume (10-15 reps). Quarta e sábado seguem a mesma lógica. Não repita igual."], ["Cardio", "De terça a sexta, 15 a 20 min de bike em zona 2 depois da musculação. Sábado a corrida de 5km substitui."]]};
+const tabs=document.getElementById('tabs'),panels=document.getElementById('panels');
+const labels=[...D.days.map(d=>d.key),'Volume','Regras'];
+let html='';
+D.days.forEach((d,i)=>{
+ const rows=d.ex.map(e=>`<div class="row"><div>${e[0]}${e[2]?`<small>${e[2]}</small>`:''}</div><div class="sets">${e[1]}</div></div>`).join('');
+ html+=`<div class="panel" id="p${i}"><div class="head" style="background:${d.color}"><b>${d.name.charAt(0)+d.name.slice(1).toLowerCase()}: ${d.title}</b><span>${d.badge}</span></div><div class="list">${rows}</div><div class="tip">${d.cardio?`<b>Cardio:</b> ${d.cardio}.<br>`:''}<b>Dica:</b> ${d.tip}</div>`+
+ (i===0?`<div class="tip"><b>Segunda:</b> ${D.other[0][2]}<br><b>Domingo:</b> ${D.other[1][2]}</div>`:'')+`</div>`;
+});
+const vi=D.days.length;
+html+=`<div class="panel" id="p${vi}"><h2>Séries diretas por semana</h2><table><tr><th>Grupo</th><th>Distribuição</th><th>Total</th></tr>${D.volume.map(v=>`<tr><td>${v[0]}</td><td>${v[1]}</td><td><b>${v[2]}</b></td></tr>`).join('')}</table></div>`;
+html+=`<div class="panel" id="p${vi+1}"><h2>Regras do plano</h2>${D.notes.map(n=>`<div class="note"><b>${n[0]}</b><span>${n[1]}</span></div>`).join('')}</div>`;
+panels.innerHTML=html;
+labels.forEach((l,i)=>{const b=document.createElement('button');b.className='tab';b.textContent=l;b.onclick=()=>show(i);tabs.appendChild(b)});
+function show(i){document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('on',i===j));document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('on',i===j))}
+const today=new Date().getDay();const map={2:0,3:1,4:2,5:3,6:4};show(map[today]!==undefined?map[today]:0);
+</script>
+</body>
+</html>
